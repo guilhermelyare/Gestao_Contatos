@@ -1,1 +1,25 @@
-<app-layout-autenticacao></app-layout-autenticacao>
+<app-layout-autenticacao
+    title="Entre com sua conta"
+    primaryBtnText="Entrar"
+    secondaryBtnText="Criar Conta"
+    (submit)="submit()"
+    (navigate)="navigate()"
+    [disablePrimaryBtn]="!loginForm.valid"
+>
+    <form [formGroup]="loginForm">
+        <app-auth-input
+            formControlName="email"
+            inputName="email"
+            type="email"
+            label="Email"
+            placeholder="Seu email"
+        ></app-auth-input>
+        <app-auth-input
+            formControlName="password"
+            inputName="password"
+            type="password"
+            label="Senha"
+            placeholder="Sua senha"
+        ></app-auth-input>
+    </form>
+</app-layout-autenticacao>
