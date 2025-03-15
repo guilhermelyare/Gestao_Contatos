@@ -1,1 +1,43 @@
-<p>signup works!</p>
+<app-layout-autenticacao
+    title="Insira seus dados"
+    primaryBtnText="Criar Conta"
+    secondaryBtnText="Login"
+    (submit)="submit()"
+    (navigate)="navigate()"
+    [disablePrimaryBtn]="!signupForm.valid"
+>
+    <form [formGroup]="signupForm">
+        <app-auth-input
+            formControlName="name"
+            inputName="name"
+            type="text"
+            label="Nome"
+            placeholder="Seu nome"
+        >
+        </app-auth-input>
+        <app-auth-input
+            formControlName="email"
+            inputName="email"
+            type="email"
+            label="Email"
+            placeholder="Seu email"
+        >
+        </app-auth-input>
+        <app-auth-input
+            formControlName="password"
+            inputName="password"
+            type="password"
+            label="Senha"
+            placeholder="Sua senha"
+        >
+        </app-auth-input>
+        <app-auth-input
+            formControlName="passwordConfirm"
+            inputName="passwordConfirm"
+            type="password"
+            label="Confirme sua senha"
+            placeholder="Confirme sua senha"
+        >
+        </app-auth-input>
+    </form>
+</app-layout-autenticacao>
