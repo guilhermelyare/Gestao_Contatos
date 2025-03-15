@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +32,21 @@ Route::group([
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::post('me', [AuthController::class, 'me']);
 
+});
+
+Route::prefix("users")->group(function () {
+    Route::middleware([ProtectedRoute::class])->group(function () {
+        Route::patch("/{email}/updatePassword", [UserController::class, "updatePassword"]);
+    });
+    Route::post("/saveUser", [UserController::class, "saveUser"]);
+});
+
+Route::middleware(['auth:api'])->prefix('contacts')->group(function () {
+    Route::get('/', [ContactController::class, 'index']);
+    Route::post('/', [ContactController::class, 'store']);
+    Route::get('/{id}', [ContactController::class, 'show']);
+    Route::put('/{id}', [ContactController::class, 'update']);
+    Route::delete('/{id}', [ContactController::class, 'destroy']);
+    Route::patch('/{id}/restore', [ContactController::class, 'restore']);
+    Route::get('/export', [ContactController::class, 'export']);
 });
