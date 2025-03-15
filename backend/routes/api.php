@@ -48,5 +48,5 @@ Route::middleware(['auth:api'])->prefix('contacts')->group(function () {
     Route::put('/{id}', [ContactController::class, 'update']);
     Route::delete('/{id}', [ContactController::class, 'destroy']);
     Route::patch('/{id}/restore', [ContactController::class, 'restore']);
-    Route::get('/export', [ContactController::class, 'export']);
+    Route::get('/export/csv', [ContactController::class, 'export']);
 });
