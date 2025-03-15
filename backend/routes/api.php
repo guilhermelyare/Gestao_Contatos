@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +31,11 @@ Route::group([
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::post('me', [AuthController::class, 'me']);
 
+});
+
+Route::prefix("users")->group(function () {
+    Route::middleware([ProtectedRoute::class])->group(function () {
+        Route::patch("/{email}/updatePassword", [UserController::class, "updatePassword"]);
+    });
+    Route::post("/saveUser", [UserController::class, "saveUser"]);
 });
