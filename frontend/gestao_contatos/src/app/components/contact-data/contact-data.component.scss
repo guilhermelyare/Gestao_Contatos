@@ -1,0 +1,123 @@
+@import "../../../styles/variables.scss";
+
+.card-bg{
+    height: 93vh;
+    width: 60vw;
+    background-color: $gray-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .info-bg{
+        backdrop-filter: blur(10px);
+        background: rgb(255, 255, 255);
+        box-shadow: 0px 8px 20px rgba(103, 101, 107, 0.6);
+        height: 80%;
+        width: 80%;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        .icons-wraper{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border-radius: 20px;
+
+            .icons-data{
+                padding: 5px 5px 0px 0px;
+                display: flex;
+                flex-direction: row;
+                align-items: start;
+                gap: 8px;
+                margin-left: -50px;
+
+
+                img{
+                    width: 30px;
+                }
+
+                img:hover{
+                    cursor: pointer;
+                }
+            }
+
+        }
+
+        .name{
+            font-size: xx-large;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            
+            div{
+                display: flex;
+                justify-content: center;
+                gap: 5px;
+
+                img{
+                    width: 20px;
+                }
+
+                img:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .contact-data{
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+
+            div{
+                background: $gray-bg;
+                box-shadow: 0px 8px 20px rgba(103, 101, 107, 0.174);
+                padding: 10px;
+                border-radius: 8px;
+                font-size: large;
+
+                .data{
+                    color: $primary-color;
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        .avatar {
+            width: 10vw;
+            margin-top: -50px;
+            box-shadow: 0px 8px 20px rgba(103, 101, 107, 0.6);
+            border-radius: 80px;
+        }
+    }
+}
+
+@media (max-width: 780px) {
+    .card-bg{
+        height: 80vh;
+
+        .info-bg{
+            height: 100vh;
+            width: 100vw;
+            border: 1px solid;
+
+            .name{
+                margin-top: 20px;
+                font-size: large;
+            }
+
+            .avatar {
+                display: none;
+            }
+            
+        } 
+    }
+}

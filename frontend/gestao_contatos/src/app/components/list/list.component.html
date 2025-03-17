@@ -1,0 +1,67 @@
+<main>
+    <section class="list-section">
+        <div class="wrapper">
+            <div class="input-content">
+                <input
+                    type="text"
+                    placeholder="Buscar contato"
+                    [(ngModel)]="searchTerm"
+                    (input)="filterContacts()"
+                />
+            </div>
+            <button class="btn-primary" (click)="onAddContact()">
+                <img src="/assets/svg/add.svg">
+            </button>
+        </div>
+        <div class="filter-select">
+            <select id="contactFilter" [(ngModel)]="currentFilter" (change)="applyFilter()">
+                <option value="todos">Todos</option>
+                <option value="nao-apagados">Ativos</option>
+                <option value="apagados">Apagados</option>
+            </select>
+
+            <button class="btn-export" (click)="onExport()">
+                <p>Exportar</p>
+                <img src="/assets/svg/export.svg">
+            </button>
+        </div>
+        <div class="contact-list">
+            <app-contact-list 
+                [names]="contactNames" 
+                [contacts]="filteredContacts"
+                (contactSelected)="onSelectContact($event)">
+            </app-contact-list>
+        </div>
+        <ng-content></ng-content>
+    </section>
+    <section class="main-section" *ngIf="!selectedContact && !showAddContact">
+        <img src="/assets/svg/search-image.svg">
+    </section>
+
+    <section class="data-section" *ngIf="selectedContact && !showAddContact">
+        <app-contact-data
+            [contact]="selectedContact" 
+            (contactSelected)="onSelectContact($event)">
+        >
+        </app-contact-data>
+    </section>
+
+    <section class="add-contact-section" *ngIf="showAddContact">
+        <app-add-contact
+            title="Adicione um novo contato"
+            primaryBtnText="Salvar"
+            secondaryBtnText="Cancelar"
+            (cancel)="onCancelAddContact()"
+        >
+        </app-add-contact>
+    </section>
+
+    <section class="edit-contact-section">
+        <app-add-contact
+            title="Edite os dados"
+            primaryBtnText="Salvar"
+            secondaryBtnText="Cancelar"
+        >
+        </app-add-contact>
+    </section>
+</main>

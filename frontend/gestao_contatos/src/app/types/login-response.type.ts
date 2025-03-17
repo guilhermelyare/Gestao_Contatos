@@ -1,3 +1,3 @@
 export type LoginResponse = {
-    token: string,
+    access_token: string,
 }
