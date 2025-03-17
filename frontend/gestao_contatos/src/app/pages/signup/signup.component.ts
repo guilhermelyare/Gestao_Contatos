@@ -60,7 +60,7 @@ export class SignUpComponent {
     this.signupService.signup(name, email, password).subscribe({
       next: () => {
         this.toastService.success('Cadastro realizado com sucesso!');
-        this.router.navigate(['login']);
+        this.router.navigate(['/']);
       },
       error: (error) => {
         this.toastService.error(error.message);
@@ -70,6 +70,6 @@ export class SignUpComponent {
   
 
   navigate() {
-    this.router.navigate(['login']);
+    this.router.navigate(['/']);
   }
 }

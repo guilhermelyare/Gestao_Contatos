@@ -52,7 +52,7 @@ export class LoginComponent {
     this.loginService.login(email, password).subscribe({
       next: () => {
         this.toastService.success('Login feito com sucesso!');
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/contatos']);
       },
       error: (err) => {
         this.isLoading = false;
