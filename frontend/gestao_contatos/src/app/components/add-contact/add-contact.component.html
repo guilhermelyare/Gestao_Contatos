@@ -1,0 +1,44 @@
+<!-- add-contact.component.html -->
+<div class="add-contact">
+    <h2>{{ title }}</h2>
+  
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <app-auth-input
+        formControlName="name"
+        inputName="name"
+        type="text"
+        label="Nome"
+        placeholder="Min 3 caractéres"
+      ></app-auth-input>
+      <app-auth-input
+        formControlName="email"
+        inputName="email"
+        type="email"
+        label="Email"
+        placeholder="exem@exem.com"
+      ></app-auth-input>
+      <app-auth-input
+        formControlName="telefone"
+        inputName="telefone"
+        type="text"
+        label="Celular"
+        placeholder="(xx) 9xxxx-xxxx"
+      ></app-auth-input>
+      <app-auth-input
+        formControlName="descricao"
+        inputName="descricao"
+        type="text"
+        label="Descrição"
+        placeholder="Opicional"
+      ></app-auth-input>
+  
+      <div class="btn-wrapper">
+        <button class="btn-primary" type="submit">
+          {{ primaryBtnText }}
+        </button>
+        <button class="btn-secondary" (click)="onCancel()">
+          {{ secondaryBtnText }}
+        </button>
+      </div>
+    </form>
+</div>  

@@ -1,0 +1,22 @@
+@import "../../../styles/variables.scss";
+
+nav{
+    height: 7vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $secondary-color;
+    padding: 5px 15px;
+
+    .logo{
+        height: 70%;
+    }
+
+    .logout{
+        height: 50%;
+    }
+
+    .logout:hover{
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,10 @@
+<div *ngIf="contacts.length > 0; else noContacts">
+    <div class="contact-item" *ngFor="let contact of contacts" (click)="selectContact(contact)">
+        <p>{{ contact.name }}</p>
+        <img src="/assets/svg/arrow.svg">
+    </div>
+</div>
+
+<ng-template #noContacts>
+    <p>Nenhum contato encontrado.</p>
+</ng-template>

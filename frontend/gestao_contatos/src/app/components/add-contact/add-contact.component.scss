@@ -1,0 +1,62 @@
+@import "../../../styles/variables.scss";
+
+.add-contact{
+    height: 80vh;
+    width: 40vw;
+    background: #fff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+    box-shadow: 0px 8px 20px rgba(103, 101, 107, 0.6);
+
+    h2{
+        text-align: center;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 10px; 
+    }
+
+    .btn-wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 20px;
+
+        button {
+            width: 100%;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            background: transparent;
+            padding: 12px 24px;
+            cursor: pointer;
+
+            &:disabled {
+                opacity: 0.8;
+            }
+
+            &.btn-primary {
+                background-color: $primary-color;
+                color: white;
+                box-shadow: 0px 8px 12px rgba(148, 64, 255, 0.2);
+            }
+
+            &.btn-secondary {
+                border: 1px solid $primary-color;
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+@media (max-width: 780px) {
+    .add-contact{
+        height: 100vh;
+        width: 100vw;
+    }
+}
