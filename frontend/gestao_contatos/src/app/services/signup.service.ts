@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SignupService {
-  private apiUrl = 'http://127.0.0.1:8000/api/users/saveUser';
+  private apiUrl = 'http://gestaocontatos.eastus2.cloudapp.azure.com:8000/api/users/saveUser';
 
   constructor(private httpClient: HttpClient) {}
 
