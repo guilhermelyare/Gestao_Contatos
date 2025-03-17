@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: laravel-app
+    ports:
+      - 8000:8000  # Mapeando a porta 8000 para a aplicação Laravel
+    volumes:
+      - .:/var/www/html  # Compartilhando o diretório do código
+    networks:
+      - laravel-network
+    environment:
+      - COMPOSER_ALLOW_SUPERUSER=1
+      - DB_CONNECTION=mysql
+      - DB_HOST=laravel-db  # O nome do serviço do MySQL no Docker Compose
+      - DB_PORT=3306
+      - DB_DATABASE=gestao_contatos
+      - DB_USERNAME=root
+      - DB_PASSWORD=minhasenha  # Deixe em branco conforme sua configuração
+    command: ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+
+  db:
+    image: mysql:8.0
+    container_name: laravel-db
+    environment:
+      MYSQL_ROOT_PASSWORD: minhasenha  # Defina uma senha segura aqui
+      MYSQL_DATABASE: gestao_contatos # Deixe em branco conforme sua configuração
+    ports:
+      - 3306:3306  # A porta 3306 do MySQL será mapeada para a porta 3306 do host
+    networks:
+      - laravel-network
+
+networks:
+  laravel-network:
+    driver: bridge
